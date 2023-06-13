@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/thegreataint/tacstory/compare/v1.0.0...v1.0.1) (2023-06-13)
+
+
+### Bug Fixes
+
+* **chromatic:** add chromatic project ([4b1eb94](https://github.com/thegreataint/tacstory/commit/4b1eb94b79e5868cbf0eda47a6030ce3c2a42ec4))
+
 # 1.0.0 (2023-06-13)
 
 
