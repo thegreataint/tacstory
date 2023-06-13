@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import CreatableSelect from 'react-select/creatable';
 import AXIOS from './Helper/axios';
-
 
 const createOption = (label) => ({
   label,
   value: label,
 });
 
-
 export const DynamicSelect = ({ baseUrl, route, params, filterBy = 'name', placeholder, ...props }) => {
+  const paramsRef = useRef(params);
   const [inputValue, setInputValue] = useState('');
   const [value, setValue] = useState([]);
   const [data, setData] = useState([]);
@@ -17,89 +16,85 @@ export const DynamicSelect = ({ baseUrl, route, params, filterBy = 'name', place
   const [lastPage, setLastPage] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
-  // const [params, setParams] = useState
   const scrollProduct = () => {
-    // console.log('scrollProduct')
-      if (page.page < lastPage) {
-          setPage({ ...page, ...{ page: page.page + 1} });
-      }
-  }
+    if (page.page < lastPage) {
+      setPage((prevPage) => ({ ...prevPage, page: prevPage.page + 1 }));
+    }
+  };
+
   useEffect(() => {
-    // console.log(placeholder)
-
-        params = { ...params, ...{ page: page.page + 1}}
-        AXIOS.fire(baseUrl, route, params, undefined, 'get').then(async response => {
-            const allData = data;
-            response.data.map((item) => {
-                allData.push({
-                    'value': item.id,
-                    'label': item[filterBy],
-                });
-            })
-            setLastPage(response.meta.last_page)
-            setData(allData)
-          }).catch(error => {
-
-          })
-    }, [page,baseUrl,route])
+    const newParams = { ...paramsRef.current, ...{ page: page.page + 1 } };
+    AXIOS.fire(baseUrl, route, newParams, undefined, 'get')
+      .then(async (response) => {
+        setData((prevData) => [
+          ...prevData,
+          ...response.data.map((item) => ({
+            value: item.id,
+            label: item[filterBy],
+          })),
+        ]);
+        setLastPage(response.meta.last_page);
+      })
+      .catch((error) => {
+        // Handle error
+      });
+  }, [page, baseUrl, route, filterBy]);
 
   const handleKeyDown = (event) => {
     if (!inputValue) return;
     switch (event.key) {
       case 'Enter':
       case 'Tab':
-        // setValue((prev) => [...prev, createOption(inputValue)]);
         createNewOption(inputValue);
-        // console.log(inputValue);
         setInputValue('');
         event.preventDefault();
+        break;
+      default:
+        // Handle other key events here if needed
+        break;
     }
   };
-  
+
   const createNewOption = (newOption) => {
-    console.log(newOption)
-    const tempData = data;
-    setData([]);
+    const tempData = [...data];
     setIsLoading(true);
     const newCreateData = {
-      [filterBy]: newOption 
-    }
-    console.log(newCreateData)
-    AXIOS.fire(baseUrl, route, undefined, newCreateData, 'post').then(async response => {
-        const allData = data;
-        // setData((data) => [...tempData, tempData]);
-        setData((data) => [...tempData, {value:response.data.id, label:response.data[filterBy]}]);
-        setValue((prev) => [...prev, createOption(newOption)]);
-        // setData(allData)
-      }).catch(error => {
-      setIsLoading(false);
-
+      [filterBy]: newOption,
+    };
+    AXIOS.fire(baseUrl, route, undefined, newCreateData, 'post')
+      .then(async (response) => {
+        const newOptionData = { value: response.data.id, label: response.data[filterBy] };
+        setData([...tempData, newOptionData]);
+        setValue((prevValue) => [...prevValue, createOption(newOption)]);
       })
-      
-    
-  }
+      .catch((error) => {
+        // Handle error
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
   return (
     <>
-      {placeholder &&
+      {placeholder && (
         <CreatableSelect
           inputValue={inputValue}
           isClearable
           isMulti
           options={data}
-          // menuIsOpen={true}
-          onCreateOption={(newOption) => createNewOption(newOption)}
+          onCreateOption={createNewOption}
           isSearchable={true}
           onMenuScrollToBottom={scrollProduct}
           hideSelectedOptions={true}
-          onChange={(newValue) => setValue(newValue)}
-          onInputChange={(newValue) => setInputValue(newValue)}
+          onChange={setValue}
+          onInputChange={setInputValue}
           onKeyDown={handleKeyDown}
           placeholder={placeholder}
           value={value}
           isLoading={isLoading}
-          // menuIsOpen={isLoading}
         />
-      }
+      )}
     </>
   );
 };
