@@ -1,3 +1,13 @@
+## [1.0.2](https://github.com/thegreataint/tacstory/compare/v1.0.1...v1.0.2) (2023-06-13)
+
+
+### Bug Fixes
+
+* **DynamicSelect:** fix all warnings ([8e3bac7](https://github.com/thegreataint/tacstory/commit/8e3bac7df940a302f4f274d8f196594d797eff00))
+* **npm:** cp to dist from package.json ([04835a8](https://github.com/thegreataint/tacstory/commit/04835a829ae32930134f16275c41aa533323c69d))
+* **npm:** test ([467ee83](https://github.com/thegreataint/tacstory/commit/467ee83f401072d95041fa2454bd286aca0f75f8))
+* **package:** fix copy command ([374250c](https://github.com/thegreataint/tacstory/commit/374250c3dad64ebc385eedb4e68fe9328a520b1c))
+
 ## [1.0.1](https://github.com/thegreataint/tacstory/compare/v1.0.0...v1.0.1) (2023-06-13)
 
 
