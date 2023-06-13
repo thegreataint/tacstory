@@ -1,6 +1,6 @@
 {
   "name": "tacstory",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "src/index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",

@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/thegreataint/tacstory/compare/v1.0.2...v1.0.3) (2023-06-13)
+
+
+### Bug Fixes
+
+* **button:** Change button to js instead of jsx ([af41f68](https://github.com/thegreataint/tacstory/commit/af41f682145d7cd08ce99b4d54e7a8fae4e5afda))
+
 ## [1.0.2](https://github.com/thegreataint/tacstory/compare/v1.0.1...v1.0.2) (2023-06-13)
 
 
