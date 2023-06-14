@@ -63,12 +63,8 @@
     "eslint-plugin-storybook": "^0.6.12",
     "prop-types": "^15.8.1",
     "storybook": "^7.0.20",
-    "webpack": "^5.86.0" <<
-      << << < HEAD
+    "webpack": "^5.86.0"
   },
   "readme": "ERROR: No README data found!",
-  "_id": "tacstory@0.1.0" ===
-    === =
-} >>>
->>> > 65 b24312d6e37dca7b4befa5c4f102a9c5a8ff8d
+  "_id": "tacstory@0.1.0"
 }
