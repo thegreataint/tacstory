@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/thegreataint/tacstory/compare/v1.0.5...v1.0.6) (2023-06-14)
+
+
+### Bug Fixes
+
+* **Chromatic:** Fix the chromatic build ([4874405](https://github.com/thegreataint/tacstory/commit/4874405fb9e4939c0c5b9a54e494fcf7ba20445b))
+
 ## [1.0.5](https://github.com/thegreataint/tacstory/compare/v1.0.4...v1.0.5) (2023-06-14)
 
 
