@@ -1,3 +1,11 @@
+## [1.0.4](https://github.com/thegreataint/tacstory/compare/v1.0.3...v1.0.4) (2023-06-14)
+
+
+### Bug Fixes
+
+* **npm:** build on semantic to dist ([07b6b94](https://github.com/thegreataint/tacstory/commit/07b6b94baca168e8ec59306a7fa53abb35afaf07))
+* **package:** conflict on package.json ([58d42bd](https://github.com/thegreataint/tacstory/commit/58d42bd3480749f62a0f9a221b2eb6dd915d0787))
+
 ## [1.0.3](https://github.com/thegreataint/tacstory/compare/v1.0.2...v1.0.3) (2023-06-13)
 
 
