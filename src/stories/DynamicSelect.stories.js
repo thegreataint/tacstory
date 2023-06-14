@@ -1,4 +1,4 @@
-import { DynamicSelect } from '../components/DynamicSelect';
+import DynamicSelect from '../components/DynamicSelect';
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction
 export default {
