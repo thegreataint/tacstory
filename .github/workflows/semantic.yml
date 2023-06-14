@@ -22,7 +22,8 @@ jobs:
         run: yarn
 
       - name: Build app
-        run: yarn build
+        run: yarn build -- --output-path=dist
+
         
         # Verify Authentication with npm        
       - name: Authenticate with npm
