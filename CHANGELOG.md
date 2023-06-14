@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/thegreataint/tacstory/compare/v1.0.6...v1.0.7) (2023-06-14)
+
+
+### Bug Fixes
+
+* **DynamicSelect2:** Add new Component Dynamic Select 2 ([325d5b0](https://github.com/thegreataint/tacstory/commit/325d5b0af51dcfed6119dfc0db0db46a390d499c))
+
 ## [1.0.6](https://github.com/thegreataint/tacstory/compare/v1.0.5...v1.0.6) (2023-06-14)
 
 
