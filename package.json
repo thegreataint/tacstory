@@ -1,6 +1,7 @@
 {
   "name": "tacstory",
   "version": "1.0.0",
+  "main": "dist/index.js",
   "files": [
     "dist"
   ],
@@ -16,6 +17,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "go": "webpack --config webpack.config.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -42,6 +44,12 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-select": "^5.0.0",
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",

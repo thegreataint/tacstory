@@ -7,7 +7,7 @@ const createOption = (label) => ({
   value: label,
 });
 
-export const DynamicSelect = ({ baseUrl, route, params, filterBy = 'name', placeholder, ...props }) => {
+export default function DynamicSelect({ baseUrl, route, params, filterBy = 'name', placeholder, ...props }) {
   const paramsRef = useRef(params);
   const [inputValue, setInputValue] = useState('');
   const [value, setValue] = useState([]);
