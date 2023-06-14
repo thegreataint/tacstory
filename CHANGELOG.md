@@ -1,3 +1,11 @@
+## [1.0.5](https://github.com/thegreataint/tacstory/compare/v1.0.4...v1.0.5) (2023-06-14)
+
+
+### Bug Fixes
+
+* **npm:** build with webpack ([64ba9d2](https://github.com/thegreataint/tacstory/commit/64ba9d2ab6447277e2999032e0ceadeb49bae0e2))
+* **webpack:** add webpack-cli to package ([34c63a6](https://github.com/thegreataint/tacstory/commit/34c63a6a36b52d122df0f65be1c204b5d01faee5))
+
 ## [1.0.4](https://github.com/thegreataint/tacstory/compare/v1.0.3...v1.0.4) (2023-06-14)
 
 
