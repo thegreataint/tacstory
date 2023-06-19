@@ -5,7 +5,7 @@ import AXIOS from './Helper/axios';
 DynamicSelect2.defaultProps = {
   options: [],
   isMultiple: false,
-  url: { 
+  url: {
     baseUrl: 'https://api.lacasa.tacverse.com/v1/', 
     route: 'users', 
     hasPagination: true 
@@ -17,7 +17,7 @@ DynamicSelect2.defaultProps = {
   },
 };
 
-export default function DynamicSelect2({ options, isMultiple, url, filter}) {
+export default function DynamicSelect2({ options, isMultiple, url, filter, handleCreate}) {
   // 
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -55,6 +55,7 @@ export default function DynamicSelect2({ options, isMultiple, url, filter}) {
               label: item[filter.filterBy],
             })),
           ];
+          console.log(prepareData);
           setLastPage(response.meta.last_page);
           setResetFilter(false)
           setIsLoading(false)
@@ -133,6 +134,7 @@ export default function DynamicSelect2({ options, isMultiple, url, filter}) {
   };
 
   const handleOptionClick = (option) => {
+    console.log(option)
     const isSelected = selectedOptions.find((selectedOption) => selectedOption.value === option.value);
     let updatedSelectedOptions = [];
 
@@ -145,13 +147,39 @@ export default function DynamicSelect2({ options, isMultiple, url, filter}) {
     setSelectedOptions(updatedSelectedOptions);
     setSearchQuery('');
   };
+  
+  const handleCreateClick = (query) => {
+    
+    if (typeof handleCreate === 'function') {
+      handleCreate(query)
+    }else if(url.baseUrl.length > 0 && url.route.length > 0){
+      // Create 
+      const newCreateData = {
+        [filter.filterBy]: query,
+      };
+      // setIsLoading(true);
+      AXIOS.fire(url.baseUrl, url.route, undefined, newCreateData, 'post')
+        .then(async (response) => {
+          const newOptionData = { value: response.data.id, label: response.data[data.filterBy] };
+          setData([...data, newOptionData]);
+          console.log(newOptionData)
+          handleOptionClick(newOptionData)
+          // setIsLoading(false)
+          
+        })
+        .catch((error) => {
+          // Handle error
+        })
+        .finally(() => {
+          // setIsLoading(false);
+        });
+    }
+  }
 
   const filteredOptions = data.filter((item) =>
     item.label.toLowerCase().includes(searchQuery.toLowerCase()) && !selectedOptions.includes(item)
   );
-  const handleCreateClick = (query) => {
-    console.log(query)
-  }
+
 
   useEffect(() => {
     const handleClickOutside = (event) => {

@@ -20,10 +20,11 @@ export default {
     url: {
       control: {
         type: 'object',
-        value: { 
-            baseUrl: 'https://api.lacasa.tacverse.com/v1/', 
-            route: 'users' ,
-            hasPagination: true },
+        value: {
+          baseUrl: 'https://api.lacasa.tacverse.com/v1/', 
+          route: 'users', 
+          hasPagination: true 
+        }
       },
     },
       filter: {
@@ -41,10 +42,14 @@ export default {
      isMultiple: { type: 'boolean', defaultValue: false },
   }
 };
+
+const handleCreateClick = (query) => {
+  console.log(query)
+}
 // const options = [
 //   { value: 'option1', label: 'Option 1' },
 //   { value: 'option2', label: 'Option 2' },
 //   { value: 'option3', label: 'Option 3' },
 // ];
 
-export const Default = (args) => <DynamicSelect2 {...args}/>;
+export const Default = (args) => <DynamicSelect2 {...args}  handleCreate={handleCreateClick}/>;
