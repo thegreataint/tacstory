@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/thegreataint/tacstory/compare/v1.1.1...v1.2.0) (2023-07-12)
+
+
+### Features
+
+* **DynamicSelect2:** Add New Component ([f404aed](https://github.com/thegreataint/tacstory/commit/f404aed9ff314b9c1b1aa0e5daae655694d682ce))
+
 ## [1.1.1](https://github.com/thegreataint/tacstory/compare/v1.1.0...v1.1.1) (2023-06-19)
 
 
