@@ -1,5 +1,6 @@
 export { default as DynamicSelect } from './components/DynamicSelect';
 export { default as Button } from './components/Button';
+export { default as TacSelect } from './components/DynamicSelect2';
 // import React from 'react';
 // import ReactDOM from 'react-dom/client';
 // import './index.css';
