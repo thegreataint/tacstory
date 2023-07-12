@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/thegreataint/tacstory/compare/v1.1.0...v1.1.1) (2023-06-19)
+
+
+### Bug Fixes
+
+* **DynamicSelect2:** Add new features ([58680fe](https://github.com/thegreataint/tacstory/commit/58680feaf9f04a585a673a698c5e4a1e9104f346))
+
 # [1.1.0](https://github.com/thegreataint/tacstory/compare/v1.0.7...v1.1.0) (2023-06-19)
 
 
