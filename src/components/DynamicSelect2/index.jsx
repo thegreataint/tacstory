@@ -79,40 +79,40 @@ export default function DynamicSelect2({ options, isMultiple, url, filter, handl
   
   
   useEffect(() => {
-  function handleScroll() {
-    const list = listRef.current;
-    const scrollTop = list.scrollTop;
-    const scrollHeight = list.scrollHeight;
-    const clientHeight = list.clientHeight;
+    function handleScroll() {
+      const list = listRef.current;
+      const scrollTop = list.scrollTop;
+      const scrollHeight = list.scrollHeight;
+      const clientHeight = list.clientHeight;
 
-    // Check if scrolled to the bottom
-    if (scrollTop + clientHeight === scrollHeight) {
-      // Call your function here
-      handleScrollToBottom();
-    }
-  }
-
-  if (listRef.current) {
-    const list = listRef.current;
-    list.addEventListener('scroll', handleScroll);
-    return () => {
-      list.removeEventListener('scroll', handleScroll);
-    };
-  }
-}, [listRef.current]);
-  useEffect(() => {
-    getInitialData(filterParams).then((newData) => {
-      // 
-      if(newData.length === 0 && searchQuery.length > 0)
-      {
-        
-        setShowCreate(true)
-      }else{
-        setShowCreate(false)
+      // Check if scrolled to the bottom
+      if (scrollTop + clientHeight === scrollHeight) {
+        // Call your function here
+        handleScrollToBottom();
       }
-      setData(newData);
-    });
-}, [filterParams]);
+    }
+
+    if (listRef.current) {
+      const list = listRef.current;
+      list.addEventListener('scroll', handleScroll);
+      return () => {
+        list.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, [listRef.current]);
+    useEffect(() => {
+      getInitialData(filterParams).then((newData) => {
+        // 
+        if(newData.length === 0 && searchQuery.length > 0)
+        {
+          
+          setShowCreate(true)
+        }else{
+          setShowCreate(false)
+        }
+        setData(newData);
+      });
+  }, [filterParams]);
 
   function handleScrollToBottom() {
     
